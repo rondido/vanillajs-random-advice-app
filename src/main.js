@@ -1,25 +1,28 @@
-const ADVEICE_URL = "https://api.adviceslip.com/advice";
+const ADVEICE_URL = 'https://api.adviceslip.com/advice'
 
-let json;
+const Container = document.createElement('div')
+
+const button = document.createElement('button')
+
+Container.classList.remove('container-advice')
+
 async function fetchApi() {
-  const abc = await fetch(ADVEICE_URL);
-  const data = await abc.json();
+  const abc = await fetch(ADVEICE_URL)
+  const data = await abc.json()
   Container.innerHTML = `
-    <div id=${data.slip.id} class="advice"><p>${data.slip.advice}</p></div>
-  `;
+    <div id=${data.slip.id} class="advice"><p class="advice-discrption">${data.slip.advice}</p></div>
+  `
 }
 
-const Container = document.createElement("div");
+Container.classList.add('container-advice')
 
-const button = document.createElement("button");
+button.textContent = '명언 가져오기'
 
-Container.classList.add("container-advice");
+button.addEventListener('click', () => {
+  fetchApi()
+})
 
-button.textContent = "명언 가져오기";
+button.classList.add('advice-get-btn')
 
-button.addEventListener("click", () => {
-  fetchApi();
-});
-
-document.body.appendChild(Container);
-document.body.appendChild(button);
+document.body.appendChild(Container)
+document.body.appendChild(button)
