@@ -2,6 +2,7 @@ import Home from './Home'
 import About from './About'
 import Advice from './Advice'
 import { createRouter } from '../core/Component'
+import Search from './Search'
 export default createRouter([
   {
     path: '#/',
@@ -14,5 +15,9 @@ export default createRouter([
   {
     path: '#/about',
     element: About
+  },
+  {
+    path: '#/search',
+    element: Search
   }
 ])
