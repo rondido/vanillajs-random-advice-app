@@ -1,28 +1,37 @@
-const ADVEICE_URL = 'https://api.adviceslip.com/advice'
+// const ADVEICE_URL = 'https://api.adviceslip.com/advice'
 
-const Container = document.createElement('div')
+import App from './App'
+import route from './route'
 
-const button = document.createElement('button')
+// const Container = document.createElement('div')
 
-Container.classList.remove('container-advice')
+// const button = document.createElement('button')
 
-async function fetchApi() {
-  const abc = await fetch(ADVEICE_URL)
-  const data = await abc.json()
-  Container.innerHTML = `
-    <div id=${data.slip.id} class="advice"><p class="advice-discrption">${data.slip.advice}</p></div>
-  `
-}
+// Container.classList.remove('container-advice')
 
-Container.classList.add('container-advice')
+// async function fetchApi() {
+//   const abc = await fetch(ADVEICE_URL)
+//   const data = await abc.json()
+//   Container.innerHTML = `
+//     <div id=${data.slip.id} class="advice"><p class="advice-discrption">${data.slip.advice}</p></div>
+//   `
+// }
 
-button.textContent = '명언 가져오기'
+// Container.classList.add('container-advice')
 
-button.addEventListener('click', () => {
-  fetchApi()
-})
+// button.textContent = '명언 가져오기'
 
-button.classList.add('advice-get-btn')
+// button.addEventListener('click', () => {
+//   fetchApi()
+// })
 
-document.body.appendChild(Container)
-document.body.appendChild(button)
+// button.classList.add('advice-get-btn')
+
+// document.body.appendChild(Container)
+// document.body.appendChild(button)
+
+const root = document.querySelector('#root')
+
+root.append(new App().el)
+
+route()
